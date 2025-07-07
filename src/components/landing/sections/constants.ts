@@ -1,0 +1,62 @@
+export const popularItineraries = [
+  {
+    id: 1,
+    title: "3 Days in Coorg",
+    description: "Coffee plantations & waterfalls",
+    price: 12999,
+    duration: "3 days",
+    locations: 8,
+    rating: 4.8,
+    backgroundColor: "from-emerald-400 to-teal-500",
+  },
+  {
+    id: 2,
+    title: "Weekend in Goa",
+    description: "Beaches & Portuguese architecture",
+    price: 8999,
+    duration: "2 days",
+    locations: 6,
+    rating: 4.6,
+    backgroundColor: "from-blue-400 to-cyan-500",
+  },
+  {
+    id: 3,
+    title: "Himalayan Adventure",
+    description: "Mountain peaks & serene valleys",
+    price: 18999,
+    duration: "5 days",
+    locations: 12,
+    rating: 4.9,
+    backgroundColor: "from-indigo-400 to-purple-500",
+  },
+];
+
+export const travelInfluencers = [
+  {
+    id: 1,
+    name: "Sarah Chen",
+    bio: "Adventure photographer & travel blogger",
+    followers: "125K",
+    locations: 89,
+    backgroundColor: "from-blue-400 to-purple-500",
+    isVerified: true,
+  },
+  {
+    id: 2,
+    name: "Marco Rodriguez",
+    bio: "Cultural explorer & food enthusiast",
+    followers: "98K",
+    locations: 67,
+    backgroundColor: "from-orange-400 to-red-500",
+    isVerified: true,
+  },
+  {
+    id: 3,
+    name: "Priya Sharma",
+    bio: "Solo traveler & storyteller",
+    followers: "156K",
+    locations: 102,
+    backgroundColor: "from-green-400 to-teal-500",
+    isVerified: true,
+  },
+];

@@ -13,7 +13,7 @@ const Button = ({ onClick, children, variant = "base", className = "" }: { onCli
     return (
         <button
             onClick={onClick}
-            className={twMerge('cursor-pointer flex-1 inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold rounded-md px-3 w-full h-9', variantStyle, className)}
+            className={twMerge('cursor-pointer inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold rounded-md px-4 py-2 h-9', variantStyle, className)}
         >
             {children}
         </button>

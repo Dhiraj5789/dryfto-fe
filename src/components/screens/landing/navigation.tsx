@@ -1,6 +1,6 @@
 'use client'
 
-import Button from "@/ui/button";
+import Button from "@/components/common/button";
 import Link from "next/link";
 
 export default function Navigation() {

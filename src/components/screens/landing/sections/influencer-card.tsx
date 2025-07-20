@@ -1,7 +1,7 @@
 'use client'
 
+import { ActionButton } from "@/components/screens/landing/sections/card-components";
 import { VerifyIcon } from "./icons";
-import { ActionButton } from "./card-components";
 
 interface InfluencerCardProps {
   name: string;

@@ -1,7 +1,7 @@
 'use client'
 
-import Button from "@/ui/button";
 import Link from "next/link";
+import { UserIcon } from "../../common/icons";
 
 export default function Navigation() {
   return (
@@ -16,9 +16,12 @@ export default function Navigation() {
         <Link href="/about" className="hover:text-orange-500">About</Link>
       </div>
       <div className="flex justify-center gap-4">
-        <Button variant="base" className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 p-5 rounded-xl" onClick={() => {
-          console.log("Get Started");
-        }}>Get Started</Button>
+        <Link 
+          href="/profile"
+          className="flex items-center justify-center bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 p-3 rounded-xl transition-all duration-300 hover:scale-105"
+        >
+          <UserIcon className="w-5 h-5 text-white" />
+        </Link>
       </div>
     </nav>
   );

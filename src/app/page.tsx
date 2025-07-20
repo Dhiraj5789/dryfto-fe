@@ -1,9 +1,9 @@
-import Navigation from "@/components/landing/navigation";
-import Hero from "@/components/landing/hero";
-import Footer from "@/components/landing/footer";
-import ExploreByCategory from "@/components/landing/sections/explore-by-category";
-import PopularItenaries from "@/components/landing/sections/popular-itenaries";
-import TravelInfluencerSpotlight from "@/components/landing/sections/travel-influencer-spotlight";
+import Navigation from "../components/screens/landing/navigation";
+import Hero from "../components/screens/landing/hero";
+import Footer from "../components/screens/landing/footer";
+import ExploreByCategory from "../components/screens/landing/sections/explore-by-category";
+import PopularItenaries from "../components/screens/landing/sections/popular-itenaries";
+import TravelInfluencerSpotlight from "../components/screens/landing/sections/travel-influencer-spotlight";
 
 export default function Home() {
   return (

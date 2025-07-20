@@ -20,6 +20,6 @@ export default function Footer() {
         <p className="text-normal cursor-pointer hover:text-gray-100">Privacy Policy</p>
         <p className="text-normal cursor-pointer hover:text-gray-100">Terms of Service</p>
       </div>
-        </footer>
+    </footer>
   );
 } 

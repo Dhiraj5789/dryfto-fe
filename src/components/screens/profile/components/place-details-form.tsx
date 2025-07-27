@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import type { PlaceFormData } from '../types';
+import { usePlaceForm } from '../hooks/usePlaceForm';
+import { PLACE_TAGS, PLACE_TYPES } from '../constants/form-data';
 
 interface PlaceDetailsFormProps {
   onSubmit: (data: PlaceFormData) => void;
@@ -7,50 +8,7 @@ interface PlaceDetailsFormProps {
 }
 
 export default function PlaceDetailsForm({ onSubmit, onCancel }: PlaceDetailsFormProps) {
-  const [formData, setFormData] = useState<PlaceFormData>({
-    placeName: '',
-    tags: {
-      Mountain: false,
-      Historical: false,
-      Adventure: false,
-      Beach: false,
-      Nature: false,
-      Food: false,
-      Monastery: false,
-      City: false,
-    },
-    type: 'Hidden',
-    shortDescription: '',
-    longDescription: '',
-  });
-
-  const [errors, setErrors] = useState<Partial<Record<keyof PlaceFormData | 'tags', string>>>({});
-
-  const validateForm = (): boolean => {
-    const newErrors: Partial<Record<keyof PlaceFormData | 'tags', string>> = {};
-
-    if (!formData.placeName.trim()) {
-      newErrors.placeName = 'Place name is required';
-    }
-
-    const selectedTags = Object.values(formData.tags).some(tag => tag);
-    if (!selectedTags) {
-      newErrors.tags = 'Please select at least one tag';
-    }
-
-    if (!formData.shortDescription.trim()) {
-      newErrors.shortDescription = 'Short description is required';
-    } else if (formData.shortDescription.length > 150) {
-      newErrors.shortDescription = 'Short description must be 150 characters or less';
-    }
-
-    if (!formData.longDescription.trim()) {
-      newErrors.longDescription = 'Long description is required';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const { formData, errors, validateForm, handleTagChange, updateField } = usePlaceForm();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,27 +16,6 @@ export default function PlaceDetailsForm({ onSubmit, onCancel }: PlaceDetailsFor
       onSubmit(formData);
     }
   };
-
-  const handleTagChange = (tag: keyof PlaceFormData['tags']) => {
-    setFormData(prev => ({
-      ...prev,
-      tags: {
-        ...prev.tags,
-        [tag]: !prev.tags[tag]
-      }
-    }));
-  };
-
-  const tagsList = [
-    { name: 'Mountain', key: 'Mountain' as const },
-    { name: 'Beach', key: 'Beach' as const },
-    { name: 'Monastery', key: 'Monastery' as const },
-    { name: 'Historical', key: 'Historical' as const },
-    { name: 'Nature', key: 'Nature' as const },
-    { name: 'City', key: 'City' as const },
-    { name: 'Adventure', key: 'Adventure' as const },
-    { name: 'Food', key: 'Food' as const },
-  ];
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -91,7 +28,7 @@ export default function PlaceDetailsForm({ onSubmit, onCancel }: PlaceDetailsFor
           type="text"
           id="placeName"
           value={formData.placeName}
-          onChange={(e) => setFormData(prev => ({ ...prev, placeName: e.target.value }))}
+          onChange={(e) => updateField('placeName', e.target.value)}
           placeholder="e.g., Hidden Waterfall Oasis"
           className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
             errors.placeName ? 'border-red-500' : 'border-gray-300'
@@ -104,11 +41,9 @@ export default function PlaceDetailsForm({ onSubmit, onCancel }: PlaceDetailsFor
 
       {/* Tags */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Tags
-        </label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Tags</label>
         <div className="grid grid-cols-3 gap-3">
-          {tagsList.map((tag) => (
+          {PLACE_TAGS.map((tag) => (
             <label key={tag.key} className="flex items-center space-x-2 cursor-pointer">
               <input
                 type="checkbox"
@@ -120,39 +55,26 @@ export default function PlaceDetailsForm({ onSubmit, onCancel }: PlaceDetailsFor
             </label>
           ))}
         </div>
-        {errors.tags && (
-          <p className="mt-1 text-sm text-red-600">{errors.tags}</p>
-        )}
+        {errors.tags && <p className="mt-1 text-sm text-red-600">{errors.tags}</p>}
       </div>
 
       {/* Type */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Type
-        </label>
+        <label className="block text-sm font-medium text-gray-700 mb-2">Type</label>
         <div className="flex space-x-4">
-          <label className="flex items-center space-x-2 cursor-pointer">
-            <input
-              type="radio"
-              name="type"
-              value="Hidden"
-              checked={formData.type === 'Hidden'}
-              onChange={(e) => setFormData(prev => ({ ...prev, type: e.target.value as 'Hidden' | 'Commercial' }))}
-              className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-            />
-            <span className="text-sm text-gray-700">Hidden</span>
-          </label>
-          <label className="flex items-center space-x-2 cursor-pointer">
-            <input
-              type="radio"
-              name="type"
-              value="Commercial"
-              checked={formData.type === 'Commercial'}
-              onChange={(e) => setFormData(prev => ({ ...prev, type: e.target.value as 'Hidden' | 'Commercial' }))}
-              className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-            />
-            <span className="text-sm text-gray-700">Commercial</span>
-          </label>
+          {PLACE_TYPES.map((type) => (
+            <label key={type.value} className="flex items-center space-x-2 cursor-pointer">
+              <input
+                type="radio"
+                name="type"
+                value={type.value}
+                checked={formData.type === type.value}
+                onChange={(e) => updateField('type', e.target.value as PlaceFormData['type'])}
+                className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+              />
+              <span className="text-sm text-gray-700">{type.label}</span>
+            </label>
+          ))}
         </div>
       </div>
 
@@ -165,7 +87,7 @@ export default function PlaceDetailsForm({ onSubmit, onCancel }: PlaceDetailsFor
           id="shortDescription"
           rows={3}
           value={formData.shortDescription}
-          onChange={(e) => setFormData(prev => ({ ...prev, shortDescription: e.target.value }))}
+          onChange={(e) => updateField('shortDescription', e.target.value)}
           placeholder="A brief summary of the place (max 150 characters)"
           maxLength={150}
           className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none ${
@@ -191,7 +113,7 @@ export default function PlaceDetailsForm({ onSubmit, onCancel }: PlaceDetailsFor
           id="longDescription"
           rows={6}
           value={formData.longDescription}
-          onChange={(e) => setFormData(prev => ({ ...prev, longDescription: e.target.value }))}
+          onChange={(e) => updateField('longDescription', e.target.value)}
           placeholder="Provide a detailed description of the place, its history, what to expect, etc."
           className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none ${
             errors.longDescription ? 'border-red-500' : 'border-gray-300'

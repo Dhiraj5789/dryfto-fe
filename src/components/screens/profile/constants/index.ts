@@ -101,4 +101,7 @@ export const TRAVEL_STATS = [
     value: '187',
     color: 'text-red-500'
   }
-]; 
+];
+
+// Re-export form data constants
+export * from './form-data'; 

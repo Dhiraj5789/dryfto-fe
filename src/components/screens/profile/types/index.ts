@@ -67,4 +67,28 @@ export interface TabsProps {
   selectedTab: string;
   onTabChange: (tabId: string) => void;
   className?: string;
+}
+
+export interface PlaceFormData {
+  placeName: string;
+  tags: {
+    Mountain: boolean;
+    Historical: boolean;
+    Adventure: boolean;
+    Beach: boolean;
+    Nature: boolean;
+    Food: boolean;
+    Monastery: boolean;
+    City: boolean;
+  };
+  type: 'Hidden' | 'Commercial';
+  shortDescription: string;
+  longDescription: string;
+}
+
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  children: React.ReactNode;
 } 

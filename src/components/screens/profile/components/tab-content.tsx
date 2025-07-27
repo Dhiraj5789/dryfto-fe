@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import OverviewStats from './overview-stats';
+import Modal from './modal';
+import PlaceDetailsForm from './place-details-form';
 import { PLACES_DATA, ITINERARIES_DATA } from '../constants';
 import { MapPinIcon, ShareIcon } from '../../../common/icons';
-import type { EmptyStateProps, PlaceData, ItineraryData } from '../types';
+import type { EmptyStateProps, PlaceData, ItineraryData, PlaceFormData } from '../types';
 
 export function EmptyState({ message, description }: EmptyStateProps) {
   return (
@@ -30,7 +32,38 @@ export function OverviewContent() {
 
 export function PlacesContent() {
   const [selectedPlaceTab, setSelectedPlaceTab] = useState('visited');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const placesData: PlaceData[] = PLACES_DATA;
+
+  const handleAddPlace = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleFormSubmit = (formData: PlaceFormData) => {
+    console.log('Place form data:', formData);
+    
+    // Format the data for better readability in console
+    const formattedData = {
+      ...formData,
+      selectedTags: Object.entries(formData.tags)
+        .filter(([, isSelected]) => isSelected)
+        .map(([tag]) => tag)
+    };
+    
+    console.log('Formatted place data:', formattedData);
+    
+    // Close modal after successful submission
+    setIsModalOpen(false);
+    
+    // You can add additional logic here like:
+    // - API call to save the place
+    // - Update local state to show the new place
+    // - Show success notification
+  };
 
   const PlaceCard = ({ place }: { place: typeof placesData[0] }) => (
     <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
@@ -67,7 +100,10 @@ export function PlacesContent() {
       {/* Header with Add New Place button */}
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-semibold text-gray-900">My Places</h3>
-        <button className="px-4 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-black/80">
+        <button 
+          onClick={handleAddPlace}
+          className="px-4 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-black/80 transition-colors"
+        >
           Add New Place
         </button>
       </div>
@@ -103,12 +139,12 @@ export function PlacesContent() {
 
         {/* Tab Content */}
         <div className="min-h-[300px]">
-                     {selectedPlaceTab === 'visited' ? (
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-               {placesData.map((place) => (
-                 <PlaceCard key={place.id} place={place} />
-               ))}
-             </div>
+          {selectedPlaceTab === 'visited' ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {placesData.map((place) => (
+                <PlaceCard key={place.id} place={place} />
+              ))}
+            </div>
           ) : (
             <EmptyState 
               message="No places added yet" 
@@ -117,6 +153,18 @@ export function PlacesContent() {
           )}
         </div>
       </div>
+
+      {/* Modal for Add New Place */}
+      <Modal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal}
+        title="Add New Place"
+      >
+        <PlaceDetailsForm 
+          onSubmit={handleFormSubmit}
+          onCancel={handleCloseModal}
+        />
+      </Modal>
     </div>
   );
 }

@@ -5,4 +5,6 @@ export { default as ProfileInfo } from './profile-info';
 export { default as ProfileActions } from './profile-actions';
 export { default as OverviewStats } from './overview-stats';
 export { default as ContinentMap } from './continent-map';
+export { default as Modal } from './modal';
+export { default as PlaceDetailsForm } from './place-details-form';
 export { OverviewContent, PlacesContent, ItinerariesContent, EmptyState } from './tab-content'; 

@@ -2,15 +2,18 @@
 // This route is currently disabled and will redirect to the coming soon page
 // via middleware until the official launch.
 
-// Original profile page code has been commented out.
+// Original landing page code has been commented out.
 // To restore: uncomment the imports and component below.
 
-// import ProfileCard from "../../components/screens/profile/components/profile-card";
-// import ProfileTabs from "../../components/screens/profile/components/profile-tabs";
-// import TravelMapSection from "../../components/screens/profile/components/travel-map-section";
+// import Navigation from "../../components/screens/landing/navigation";
+// import Hero from "../../components/screens/landing/hero";
+// import Footer from "../../components/screens/landing/footer";
+// import ExploreByCategory from "../../components/screens/landing/sections/explore-by-category";
+// import PopularItenaries from "../../components/screens/landing/sections/popular-itenaries";
+// import TravelInfluencerSpotlight from "../../components/screens/landing/sections/travel-influencer-spotlight";
 
 // Placeholder component - will be redirected by middleware
-const ProfilePage = () => {
+export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
@@ -19,6 +22,4 @@ const ProfilePage = () => {
       </div>
     </div>
   );
-};
-
-export default ProfilePage;
+}

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Outer decorative ring -->
+  <circle cx="60" cy="60" r="58" stroke="#374151" stroke-width="2" fill="none" opacity="0.1"/>
+  
+  <!-- Main compass body -->
+  <circle cx="60" cy="60" r="50" fill="#374151" stroke="#4B5563" stroke-width="1"/>
+  
+  <!-- Inner compass face -->
+  <circle cx="60" cy="60" r="45" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="1"/>
+  
+  <!-- Degree markings outer ring -->
+  <g stroke="#374151" stroke-width="1" opacity="0.6">
+    <!-- Major cardinal marks (N, E, S, W) -->
+    <line x1="60" y1="20" x2="60" y2="25" stroke-width="2"/>
+    <line x1="100" y1="60" x2="95" y2="60" stroke-width="2"/>
+    <line x1="60" y1="100" x2="60" y2="95" stroke-width="2"/>
+    <line x1="20" y1="60" x2="25" y2="60" stroke-width="2"/>
+    
+    <!-- Secondary marks (NE, SE, SW, NW) -->
+    <line x1="81.21" y1="38.79" x2="78.79" y2="41.21" stroke-width="1.5"/>
+    <line x1="81.21" y1="81.21" x2="78.79" y2="78.79" stroke-width="1.5"/>
+    <line x1="38.79" y1="81.21" x2="41.21" y2="78.79" stroke-width="1.5"/>
+    <line x1="38.79" y1="38.79" x2="41.21" y2="41.21" stroke-width="1.5"/>
+    
+    <!-- Minor marks -->
+    <g opacity="0.4">
+      <line x1="70.5" y1="21.5" x2="69.5" y2="23"/>
+      <line x1="78.5" y1="28.5" x2="77" y2="29.5"/>
+      <line x1="91.5" y1="49.5" x2="90" y2="50.5"/>
+      <line x1="98.5" y1="70.5" x2="97" y2="69.5"/>
+      <line x1="91.5" y1="70.5" x2="90" y2="69.5"/>
+      <line x1="78.5" y1="91.5" x2="77" y2="90.5"/>
+      <line x1="70.5" y1="98.5" x2="69.5" y2="97"/>
+      <line x1="49.5" y1="98.5" x2="50.5" y2="97"/>
+      <line x1="28.5" y1="91.5" x2="29.5" y2="90.5"/>
+      <line x1="21.5" y1="70.5" x2="23" y2="69.5"/>
+      <line x1="28.5" y1="49.5" x2="29.5" y2="50.5"/>
+      <line x1="21.5" y1="49.5" x2="23" y2="50.5"/>
+      <line x1="49.5" y1="21.5" x2="50.5" y2="23"/>
+      <line x1="28.5" y1="28.5" x2="29.5" y2="29.5"/>
+    </g>
+  </g>
+  
+  <!-- Cardinal direction letters -->
+  <g fill="#374151" font-family="Arial, sans-serif" font-weight="bold" font-size="12" text-anchor="middle">
+    <text x="60" y="16" dominant-baseline="middle">N</text>
+    <text x="104" y="64" dominant-baseline="middle">E</text>
+    <text x="60" y="108" dominant-baseline="middle">S</text>
+    <text x="16" y="64" dominant-baseline="middle">W</text>
+  </g>
+  
+  <!-- Compass needle -->
+  <g>
+    <!-- North pointer (red/primary) -->
+    <polygon points="60,30 55,55 60,50 65,55" fill="#DC2626" stroke="#991B1B" stroke-width="0.5"/>
+    
+    <!-- South pointer (white/secondary) -->
+    <polygon points="60,90 65,65 60,70 55,65" fill="#F9FAFB" stroke="#374151" stroke-width="0.5"/>
+    
+    <!-- East pointer -->
+    <polygon points="90,60 65,55 70,60 65,65" fill="#6B7280" stroke="#374151" stroke-width="0.5"/>
+    
+    <!-- West pointer -->
+    <polygon points="30,60 55,65 50,60 55,55" fill="#6B7280" stroke="#374151" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Center hub -->
+  <circle cx="60" cy="60" r="8" fill="#374151" stroke="#1F2937" stroke-width="1"/>
+  <circle cx="60" cy="60" r="4" fill="#F9FAFB"/>
+  <circle cx="60" cy="60" r="2" fill="#374151"/>
+  
+  <!-- Decorative corner elements -->
+  <g stroke="#374151" stroke-width="1" fill="none" opacity="0.3">
+    <path d="M10 10 L15 10 L15 15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M110 10 L105 10 L105 15" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10 110 L15 110 L15 105" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M110 110 L105 110 L105 105" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg> 

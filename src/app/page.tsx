@@ -3,6 +3,7 @@ import {
   Navigation,
   HeroSection,
   EmailSignup,
+  UsersAwaiting,
   TaglineSection,
   FeaturesSection,
   Footer,
@@ -14,6 +15,7 @@ const Home = () => {
       <Navigation />
       <HeroSection />
       <EmailSignup />
+      <UsersAwaiting />
       <TaglineSection />
       <FeaturesSection />
       <Footer />

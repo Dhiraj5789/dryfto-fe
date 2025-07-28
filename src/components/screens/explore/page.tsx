@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Header from "./header";
-import Dropdown from "../../components/ui/dropdown";
 import Card from "./card";
 import { budgetOptions, adventureOptions, durationOptions, sampleCards } from "./constants";
+import Dropdown from "@/components/ui/dropdown";
 
 const Explore = () => {
     const [selectedBudget, setSelectedBudget] = useState(budgetOptions[0].value);

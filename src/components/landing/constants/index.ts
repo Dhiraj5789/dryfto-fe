@@ -38,4 +38,10 @@ export const BRAND_TEXT = {
   tagline: 'Curated for the curious • Crafted for the adventurous',
   copyright: '© 2025 Dryfto. Crafting extraordinary journeys.',
   brandName: 'Dryfto',
+} as const;
+
+export const WAITLIST_DATA = {
+  usersCount: 2847,
+  message: 'explorers awaiting launch',
+  subMessage: 'Join thousands discovering hidden gems worldwide',
 } as const; 

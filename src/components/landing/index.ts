@@ -8,4 +8,5 @@ export * from './types';
 export * from './constants';
 
 // Hooks
-export { useEmailSignup } from './hooks/useEmailSignup'; 
+export { useEmailSignup } from './hooks/useEmailSignup';
+export { useRegistrationCount } from './hooks/useRegistrationCount'; 

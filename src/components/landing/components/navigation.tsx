@@ -1,5 +1,6 @@
-import Logo from '@/components/common/logo';
-import { BRAND_TEXT } from '../constants';
+import Image from 'next/image';
+
+import DryftoLogo from '@public/icons/dryfto-logo.png';
 
 const Navigation = () => {
   return (
@@ -9,8 +10,7 @@ const Navigation = () => {
           
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Logo size={24} />
-            <span className="text-xl font-bold text-gray-900">{BRAND_TEXT.brandName}</span>
+            <Image src={DryftoLogo} alt="Logo" width={100} height={100} />
           </div>
 
           {/* Coming Soon Badge */}

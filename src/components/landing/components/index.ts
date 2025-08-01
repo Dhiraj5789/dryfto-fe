@@ -1,10 +1,11 @@
 export { default as LaunchingBadge } from './launching-badge';
 export { default as FeatureIcon } from './feature-icon';
 export { default as FeatureCard } from './feature-card';
-export { default as Navigation } from './navigation';
 export { default as HeroSection } from './hero-section';
 export { default as EmailSignup } from './email-signup';
-export { default as UsersAwaiting } from './users-awaiting';
+export { default as SignupSuccess } from './signup-success';
 export { default as TaglineSection } from './tagline-section';
 export { default as FeaturesSection } from './features-section';
-export { default as Footer } from './footer'; 
+export { default as Footer } from './footer';
+export { default as Navigation } from './navigation';
+export { default as UsersAwaiting } from './users-awaiting'; 

@@ -1,8 +1,14 @@
 import { MailIcon, ArrowRightIcon, UserIcon, CheckCircleIcon, XCircleIcon } from 'lucide-react';
 import { useEmailSignup } from '../hooks/useEmailSignup';
+import SignupSuccess from './signup-success';
 
 const EmailSignup = () => {
-  const { formData, isLoading, message, handleInputChange, handleSubmit } = useEmailSignup();
+  const { formData, isLoading, message, isSubmitted, handleInputChange, handleSubmit } = useEmailSignup();
+
+  // Show success component if form was successfully submitted
+  if (isSubmitted) {
+    return <SignupSuccess />;
+  }
 
   return (
     <section className="px-4 py-16 bg-white/20 backdrop-blur-sm">

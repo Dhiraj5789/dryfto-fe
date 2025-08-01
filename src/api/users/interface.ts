@@ -1,6 +1,8 @@
 export interface InternalApiResponse {
-    count: number;
-    success: boolean;
+    data: {
+        registrationCount: number;
+    };
+    is_success: boolean;
 }
 
 export interface RegisterData {

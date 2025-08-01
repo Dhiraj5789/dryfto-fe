@@ -3,7 +3,7 @@ import { InternalApiResponse, RegisterData, RegisterResponse } from "./interface
 
 export const getRegistrationCount = async (): Promise<number> => {
   try {
-    const response = await fetch('/api/users/registered', {
+    const response = await fetch('https://dryfto.onrender.com/api/v1/auth/registered', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ export const getRegistrationCount = async (): Promise<number> => {
     if (response.ok) {
       const data: InternalApiResponse = await response.json();
       
-      return data.count;
+      return data.data.registrationCount;
     }
     
     return 2000;
@@ -24,7 +24,7 @@ export const getRegistrationCount = async (): Promise<number> => {
 
 export const registerUser = async (userData: RegisterData): Promise<RegisterResponse> => {
   try {
-    const response = await fetch('/api/users/register', {
+    const response = await fetch('https://dryfto.onrender.com/api/v1/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

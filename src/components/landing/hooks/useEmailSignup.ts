@@ -15,6 +15,7 @@ export const useEmailSignup = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({
@@ -44,7 +45,7 @@ export const useEmailSignup = () => {
       });
 
       if (result.success) {
-        setMessage({ type: 'success', text: result.message || 'Welcome to the waitlist!' });
+        setIsSubmitted(true); // Mark as successfully submitted
         setFormData({ email: '', firstName: '', lastName: '' }); // Reset form
       } else {
         setMessage({ type: 'error', text: result.error || 'Registration failed' });
@@ -60,6 +61,7 @@ export const useEmailSignup = () => {
     formData,
     isLoading,
     message,
+    isSubmitted,
     handleInputChange,
     handleSubmit,
   };

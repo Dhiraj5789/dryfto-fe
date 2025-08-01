@@ -1,4 +1,6 @@
-import Logo from '@/components/common/logo';
+import Image from 'next/image';
+import DryftoLogo from '@public/icons/dryfto-logo.png';
+
 import { BRAND_TEXT } from '../constants';
 
 const Footer = () => {
@@ -8,8 +10,7 @@ const Footer = () => {
         
         {/* Logo */}
         <div className="flex items-center justify-center gap-2">
-          <Logo size={24} />
-          <span className="text-xl font-bold text-gray-900">{BRAND_TEXT.brandName}</span>
+          <Image src={DryftoLogo} alt="Logo" width={100} height={100} />
         </div>
 
         {/* Copyright */}

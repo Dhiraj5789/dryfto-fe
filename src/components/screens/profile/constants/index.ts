@@ -1,3 +1,5 @@
+import { AirplaneIcon, MapPinIcon, StarIcon } from "@/components/common/icons";
+
 export const PROFILE_DATA = {
   name: "Sarah Beach Explorer",
   username: "sarahbeaches", 
@@ -78,28 +80,25 @@ export const CONTINENTS_DATA = [
 
 export const TRAVEL_STATS = [
   {
-    icon: 'airplane',
+    icon: AirplaneIcon,
     label: 'Trips Taken',
     value: '248',
-    color: 'text-blue-500'
+    color: 'text-blue-500',
+    route: '/profile/trips'
   },
   {
-    icon: 'map-pin',
+    icon: MapPinIcon,
     label: 'Places Visited',
     value: '156',
-    color: 'text-green-500'
+    color: 'text-green-500',
+    route: '/profile/places-visited'
   },
   {
-    icon: 'star',
+    icon: StarIcon,
     label: 'Reviews Posted',
     value: '324',
-    color: 'text-purple-500'
-  },
-  {
-    icon: 'users',
-    label: 'Connections',
-    value: '187',
-    color: 'text-red-500'
+    color: 'text-purple-500',
+    route: '/profile/reviews'
   }
 ];
 

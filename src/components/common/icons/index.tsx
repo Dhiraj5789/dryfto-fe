@@ -1,11 +1,11 @@
-import React from 'react';
+import type { FC } from 'react';
 
-interface IconProps {
+export interface IconProps {
   className?: string;
   size?: number;
 }
 
-export const GlobeIcon: React.FC<IconProps> = ({ className = "w-5 h-5", size }) => (
+export const GlobeIcon: FC<IconProps> = ({ className = "w-5 h-5", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -20,7 +20,7 @@ export const GlobeIcon: React.FC<IconProps> = ({ className = "w-5 h-5", size }) 
   </svg>
 );
 
-export const ShareIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) => (
+export const ShareIcon: FC<IconProps> = ({ className = "w-4 h-4", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -38,7 +38,7 @@ export const ShareIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) 
   </svg>
 );
 
-export const MapPinIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) => (
+export const MapPinIcon: FC<IconProps> = ({ className = "w-4 h-4", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -62,7 +62,7 @@ export const MapPinIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size })
   </svg>
 );
 
-export const CalendarIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) => (
+export const CalendarIcon: FC<IconProps> = ({ className = "w-4 h-4", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -78,7 +78,7 @@ export const CalendarIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size 
   </svg>
 );
 
-export const CameraIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) => (
+export const CameraIcon: FC<IconProps> = ({ className = "w-4 h-4", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -102,7 +102,7 @@ export const CameraIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size })
   </svg>
 );
 
-export const UsersIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) => (
+export const UsersIcon: FC<IconProps> = ({ className = "w-4 h-4", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -120,7 +120,7 @@ export const UsersIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) 
   </svg>
 );
 
-export const AirplaneIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) => (
+export const AirplaneIcon: FC<IconProps> = ({ className = "w-4 h-4", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -138,7 +138,7 @@ export const AirplaneIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size 
   </svg>
 );
 
-export const StarIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) => (
+export const StarIcon: FC<IconProps> = ({ className = "w-4 h-4", size }) => (
   <svg 
     className={className} 
     width={size} 
@@ -156,7 +156,7 @@ export const StarIcon: React.FC<IconProps> = ({ className = "w-4 h-4", size }) =
   </svg>
 );
 
-export const UserIcon: React.FC<IconProps> = ({ className = "w-5 h-5", size }) => (
+export const UserIcon: FC<IconProps> = ({ className = "w-5 h-5", size }) => (
   <svg 
     className={className} 
     width={size} 

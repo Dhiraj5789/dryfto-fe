@@ -1,3 +1,6 @@
+import type { IconProps } from '@/components/common/icons';
+import type { FC } from 'react';
+
 export interface ProfileData {
   name: string;
   username: string;
@@ -31,10 +34,11 @@ export interface ContinentData {
 }
 
 export interface TravelStat {
-  icon: string;
+  icon: FC<IconProps>;
   label: string;
   value: string;
   color: string;
+  route: string;
 }
 
 export interface Tab {
@@ -91,4 +95,4 @@ export interface ModalProps {
   onClose: () => void;
   title: string;
   children: React.ReactNode;
-} 
+}

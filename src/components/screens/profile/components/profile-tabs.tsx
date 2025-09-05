@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react';
-import Tabs from '../../../common/tabs';
+import Tabs from '../../../ui/tabs';
 import { OverviewContent, PlacesContent, ItinerariesContent } from './tab-content';
 import type { Tab } from '../types';
 

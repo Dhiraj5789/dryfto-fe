@@ -28,8 +28,6 @@ export function OverviewContent() {
   );
 }
 
-
-
 export function PlacesContent() {
   const [selectedPlaceTab, setSelectedPlaceTab] = useState('visited');
   const [isModalOpen, setIsModalOpen] = useState(false);

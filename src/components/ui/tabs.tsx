@@ -2,13 +2,13 @@
 
 import { ReactNode } from 'react';
 
-interface Tab {
+export interface Tab {
   id: string;
   label: string;
   content: ReactNode;
 }
 
-interface TabsProps {
+export interface TabsProps {
   tabs: Tab[];
   selectedTab: string;
   onTabChange: (tabId: string) => void;
@@ -55,4 +55,4 @@ export default function Tabs({ tabs, selectedTab, onTabChange, className = "" }:
       </div>
     </div>
   );
-} 
+}

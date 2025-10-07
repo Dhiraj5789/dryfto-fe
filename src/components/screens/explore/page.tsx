@@ -1,12 +1,14 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Header from "./header";
 import Card from "./card";
 import { budgetOptions, adventureOptions, durationOptions, sampleCards } from "./constants";
 import Dropdown from "@/components/ui/dropdown";
 
 const Explore = () => {
+    const router = useRouter();
     const [selectedBudget, setSelectedBudget] = useState(budgetOptions[0].value);
     const [selectedAdventure, setSelectedAdventure] = useState(adventureOptions[0].value);
     const [selectedDuration, setSelectedDuration] = useState(durationOptions[0].value);
@@ -17,6 +19,7 @@ const Explore = () => {
 
     const handleViewDetails = (id: string) => {
         console.log(`View details for card ${id}`);
+        router.push(`/explore/itinerary/${id}`);
     };
 
     const handleCustomize = (id: string) => {
